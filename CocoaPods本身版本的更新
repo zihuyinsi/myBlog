@@ -1,0 +1,23 @@
+sudo gem update --system
+sudo gem install cocoapods
+pod setup
+
+pod —version
+
+
+
+sudo gem install cocoapods这一步在os x10.11会出现错误，参考下面方法解决
+http://www.07net01.com/2015/09/931270.html
+摘要 解决CocoaPods在OS X 10.11上出现的问题。
+	最近把mac系统升级到10.11系统，但是在用pod install命令的时候，却提示command not found.后来上网查了下才知道，Cocoapods在10.11
+系统上发生了变化。
+  	在stackoverflow搜到的解释是这样的，This is happening because Apple has enabled rootless on the new install，也就是说在10.11
+系统上苹果已经启用无根的安装。在这种情况下，如果你使用如下的命令：
+	sudo gem install cocoapods -v
+	就会出现这样的提示：
+	ERROR: While executing gem ... (Errno::EPERM) Operation not permitted - /usr/bin/pod。
+	
+	为了解决上面提到的问题，以及Cocoapods在OS X 10.11系统上的正常使用，我们需要在命令行输入这样一句话，
+	sudo gem install -n /usr/local/bin cocoapods
+
+	这样就能解决Cocoapods在10.11系统上出现的问题了。
