@@ -1,4 +1,3 @@
-# Blog
 
 Xcode 下 报出 "xxx" is missing from working copy
 
@@ -7,5 +6,3 @@ Xcode 下 报出 "xxx" is missing from working copy
     svn delete nameOfMissingFile
     或用Git（如果你用的是Git的话）
     git rm nameOfMissingFile
-
-#end
