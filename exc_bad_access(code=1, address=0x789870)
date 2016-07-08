@@ -9,3 +9,5 @@
 	那样Crash或者产生一个难以理解的行为，而是放出一个错误消息，然后以一种可预测的可以产生debug断点的方式消失， 因此我
 	们就可以找到具体或者大概是哪个对象被错误的释放了。 
 	
+![image](https://github.com/zihuyinsi/myBlog/Resource/exc_bad_access_Image_1.png)
+
