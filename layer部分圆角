@@ -1,0 +1,7 @@
+	UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect: phoneBtn.bounds 
+												   byRoundingCorners: UIRectCornerBottomLeft | UIRectCornerTopLeft 
+												   		 cornerRadii:CGSizeMake(15, 15)];
+    CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
+    maskLayer.frame = phoneBtn.bounds;
+    maskLayer.path = maskPath.CGPath;
+    phoneBtn.layer.mask = maskLayer;
