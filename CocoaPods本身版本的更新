@@ -6,9 +6,9 @@ pod —version
 
 
 
-sudo gem install cocoapods这一步在os x10.11会出现错误，参考下面方法解决
-http://www.07net01.com/2015/09/931270.html
-摘要 解决CocoaPods在OS X 10.11上出现的问题。
+sudo gem install cocoapods
+这一步在os x10.11会出现错误
+
 	最近把mac系统升级到10.11系统，但是在用pod install命令的时候，却提示command not found.后来上网查了下才知道，Cocoapods在10.11
 系统上发生了变化。
   	在stackoverflow搜到的解释是这样的，This is happening because Apple has enabled rootless on the new install，也就是说在10.11
@@ -21,3 +21,20 @@ http://www.07net01.com/2015/09/931270.html
 	sudo gem install -n /usr/local/bin cocoapods
 
 	这样就能解决Cocoapods在10.11系统上出现的问题了。
+	
+	重新在终端中敲入sudo gem install cocoapods这个命令之后，会发现半天没有任何反应。原因是那堵墙阻挡了cocoapods.org。
+	解决办法是，我们可以用其他的Ruby镜像来访问cocoapods。按照下面的顺序在终端中敲入依次敲入命令：
+	首先，检查你的ruby源：
+	$gem sources -l
+	默认情况下，终端应该返回如下信息：
+		*** CURRENT SOURCES ***
+		https://rubygems.org/
+	当然这个源在墙内是访问不到的。因此我们需要寻找一个可以在国内访问到的镜像。
+	目前找到的是https://gems.ruby-china.org/这个镜像，当然随着时间的推移，未来这个镜像也有可能无法访问了，到时候就只能重新寻找了。确认镜像
+可用后，现在就要开始修改ruby源了。首先执行以下命令删除原来的ruby源：
+	$gem sources --remove https://rubygems.org/
+	执行命令后可在终端看见以下信息：
+	https://rubygems.org/ removed from sources
+	然后下一步添加你找到的可用的镜像源：
+	$gem sources -a https://gems.ruby-china.org/
+	继续执行命令 sudo gem install cocoapods
